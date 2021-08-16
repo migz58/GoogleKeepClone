@@ -10,9 +10,9 @@
     <div class="container">
         <div class="row">
             <img class="noldor-logo" src="../../assets/logo2.png">
-            <h1 class="create-title">
+            <h4 class="create-title">
                 Create New Note
-            </h1>
+            </h4>
         </div>
 
         <form [formGroup]="createNoteForm">
@@ -34,8 +34,8 @@
     <div class="container noldor-grid">
         <div class="row">
 
-            <div class="col-4" *ngFor="let note of myNotes">
-                <div class="card noldor-card" style="width: 21rem;">
+            <div class="col-sm-6 col-md-6 col-xl-4" *ngFor="let note of myNotes">
+                <div class="card noldor-card" width="21">
                     <div class="card-body">
                         <svg (click)="deleteNote(note)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg trash-bin note-trash" viewBox="0 0 16 16">
                             <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
