@@ -1,0 +1,89 @@
+<button class="btn btn-danger signout-btn" (click)="signOut()">
+    Sign Out 
+    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+      </svg>
+</button>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <div class="row">
+            <img class="noldor-logo" src="../../assets/logo2.png">
+            <h1 class="create-title">
+                Create New Note
+            </h1>
+        </div>
+
+        <form [formGroup]="createNoteForm">
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="title" placeholder="Enter Note Title here">
+            </div>
+        </form>
+
+        <button class="btn secondary-btn create-note-btn" [disabled]="createNoteForm.invalid" (click)="createNote()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 20 20">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg>
+              Create
+        </button>
+    </div>
+</div>
+<div class="note-grid" *ngIf="myNotes">
+    <div class="container noldor-grid">
+        <div class="row">
+
+            <div class="col-4" *ngFor="let note of myNotes">
+                <div class="card noldor-card" style="width: 21rem;">
+                    <div class="card-body">
+                        <svg (click)="deleteNote(note)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg trash-bin note-trash" viewBox="0 0 16 16">
+                            <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                          </svg>
+
+                        <h5 class="card-title">{{note.title}}</h5>
+                        <ul>
+                            <li>
+                                <b><u>No Items added yet</u></b>
+                            </li>
+
+                            <!-- <li>
+                                <div class="row">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">
+                                            Check me out
+                                        </label>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill trash-bin item-trash" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                      </svg>
+                                </div>
+                            </li> -->
+                        </ul>
+
+                        <hr>
+                        <form [formGroup]="createItemForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" formControlName="item" placeholder="Add New Item">
+                            </div>
+                        </form>
+
+
+                        <button class="btn primary-btn add-item" (click)="addNoteItem(note.id)">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 20 20">
+                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                              </svg>
+                              Add Item
+                        </button>
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <ng-container *ngIf="myNotes.length === 0">
+                <p style="color: white;">Oh no you dont have any <b>Notes</b>!!! <br> Lets fix that</p>
+            </ng-container>
+        </div>
+    </div>
+</div>

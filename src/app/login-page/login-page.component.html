@@ -1,0 +1,61 @@
+<div class="card" *ngIf="login">
+    <div class="card-body">
+        <div class="row">
+            <img class="noldor-logo" src="../../assets/logo.png">
+        </div>
+        <form [formGroup]="credentialForm">
+            <h2 class="text-center">Sign In</h2>
+            <div class="form-group">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email address">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+        </form>
+
+        <div class="form-group">
+            <button class="btn primary-btn btn-block" [disabled]="credentialForm.invalid" (click)="signIn()">Sign in</button>
+        </div>
+        <div class="form-group">
+            <button class="btn secondary-btn btn-block" (click)="goRegister()">Sign up</button>
+        </div>
+        <!-- <div class="clearfix">
+                <a href="#" class="float-right">Forgot Password?</a>
+            </div> -->
+    </div>
+</div>
+
+<div class="card" *ngIf="!login">
+    <div class="card-body">
+        <div class="row">
+            <img class="noldor-logo" src="../../assets/logo.png">
+        </div>
+        <form [formGroup]="registerForm">
+            <h2 class="text-center">Sign Up</h2>
+
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter First Name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="surname" placeholder="Enter Surname">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" formControlName="username" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter Email address">
+                <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
+            </div>
+        </form>
+
+        <div class="form-group">
+            <button class="btn primary-btn btn-block" [disabled]="registerForm.invalid" (click)="signUp()">Sign Up</button>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-danger btn-block" (click)="goRegister()">Cancel</button>
+        </div>
+    </div>
+</div>

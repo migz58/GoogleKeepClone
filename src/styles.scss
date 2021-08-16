@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+// orange: #FF8300
+// grey: #333333
+.background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background: url('./assets/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.primary-btn {
+    color: #fff;
+    background-color: #FF8300;
+    border-color: #FF8300;
+}
+
+.secondary-btn {
+    color: #fff;
+    background-color: #333333;
+    border-color: #333333;
+}
