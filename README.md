@@ -12,7 +12,7 @@
 
 ## Build
 
-Run `npm build` OR `ng build --prod` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` OR `ng build --prod` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
@@ -24,3 +24,4 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Hosting
 Check out the link: https://keep-clone-ee934.web.app/notes
+* deploy build `firebase deploy` (do not delete indexes)
