@@ -40,7 +40,6 @@
                         <svg (click)="deleteNote(note)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg trash-bin note-trash" viewBox="0 0 16 16">
                             <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
                           </svg>
-
                         <h5 class="card-title">{{note.title}}</h5>
                         <ul>
                             <li>
@@ -76,6 +75,9 @@
                               </svg>
                               Add Item
                         </button>
+                    </div>
+                    <div class="card-footer">
+                        <p class="timestamp">Created by: <b><u>{{currentUser.username}}</u></b> on <b><u>{{note.updatedAt?.toMillis() | date:'short'}}</u></b></p>
                     </div>
                 </div>
                 <br>

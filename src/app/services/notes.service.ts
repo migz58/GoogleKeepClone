@@ -21,9 +21,9 @@ export class NotesService {
 
 
     getUserNotes(userId) {
-        return this.afs.collection('notes', (ref) => 
-        ref.where('uid', "==", userId)
-        .orderBy('updatedAt', 'desc'))
+        return this.afs.collection('notes', (ref) =>
+            ref.where('uid', "==", userId)
+                .orderBy('updatedAt', 'desc'))
             .snapshotChanges()
             .pipe(
                 map((users) => {
@@ -46,15 +46,15 @@ export class NotesService {
         })
     }
 
-    deleteNote(noteId){
+    deleteNote(noteId) {
         this.afs.collection('notes').doc(noteId).delete();
     }
 
-    deleteItem(noteId, itemId){
+    deleteItem(noteId, itemId) {
         this.afs.collection('notes').doc(noteId).collection('items').doc(itemId).delete();
     }
 
-    addItemToNote(addItem){
+    addItemToNote(addItem) {
         console.log("Add Item service", addItem);
 
         this.afs.collection('notes').doc(addItem.noteID).update({
